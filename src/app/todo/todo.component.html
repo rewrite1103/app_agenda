@@ -1,0 +1,19 @@
+<h1>Todo Edition</h1>
+
+<div class="container">
+    <div class="alert alert-danger" *ngIf="fullform.invalid"> Por favor llenar todos los campos </div>
+    <div class="alert alert-danger" *ngIf="desc.invalid && desc.dirty">El minimo de caracteres es de 4</div>
+    <form (ngSubmit)="!fullform.invalid &&SafeTodo()" #fullform = "ngForm">
+
+
+    <fieldset class="form-group">
+        <label for="">Descripción</label>
+        <input type="text" [(ngModel)]="todo.descripcion" #desc = ngModel class="form-control" name="Descripcion" id="" required minlength="3">
+    </fieldset>
+    <fieldset class="form-group">
+        <label for="">Fecha</label>
+        <input type="date" [ngModel]="todo.targetDate | date: 'yyyy-MM-dd'" (ngModelChange)="todo.targetDate = $event" class="form-control" name="targetDate" id="" required>
+    </fieldset>
+    <button type="submit" class="btn btn-success">Guardar</button>
+</form>
+</div>

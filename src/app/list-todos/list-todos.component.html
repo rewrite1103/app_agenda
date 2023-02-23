@@ -1,0 +1,35 @@
+
+
+<h2 class="text-center">Esta es mi tabla</h2>
+
+<div class="alert alert-success" *ngIf="mensaje">{{mensaje}}</div>
+<div class="container">
+<table class="table table-hover">
+  
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Descripción</th>
+            <th>Fecha</th>
+            <th>Done</th>
+            <th>Actualizar</th>
+            <th>Eliminar</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let todo of Todos">
+            <td>{{todo.id}}</td>
+            <td>{{todo.descripcion}}</td>
+            <td>{{todo.targetDate | date: "yyyy-MM-dd"}}</td>
+            <td>{{todo.done}}</td>
+            <td><button (click)="UpdateTodo(todo.id)" class="btn btn-sm btn-success">Actualizar</button></td>
+            <td><button (click)="DeleteTodo(todo.id)" class="btn btn-sm btn-warning">Eliminar</button></td>
+        </tr>
+
+</table>
+
+<div class="row">
+    <button (click)="AddTodo()" class="btn btn-success">Agregar Todo</button>
+</div>
+</div>

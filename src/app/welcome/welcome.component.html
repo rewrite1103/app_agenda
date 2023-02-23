@@ -1,0 +1,18 @@
+
+
+<h2>Bienvenido {{name}}</h2>
+
+<div class="container">
+    <p>Pudes visitar la pagina <a routerLink="/Todos" >Todos</a></p>
+</div>
+
+<div class="container">
+    <p>Traer informacion desde la api</p>
+    <button (click)="Getwel()" class="btn btn-success">Precionar</button>
+</div>
+
+<div class="container" *ngIf="messegefromservice" >
+    <h3>Mensaje de la api</h3>
+    <p>{{messegefromservice}}</p>
+    
+</div>
